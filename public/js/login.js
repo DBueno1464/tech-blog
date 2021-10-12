@@ -15,11 +15,12 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }
-    }
+    } 
+    console.log("hello");
 };
 
 const signupFormHandler = async (event) => {
@@ -37,10 +38,14 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            console.log("hello 1");
+            document.location.replace('/dashboard');
         } else {
+            console.log("hello 2");
             alert(response.statusText);
         }
+        console.log("hello 3");
+
     }
 };
 
