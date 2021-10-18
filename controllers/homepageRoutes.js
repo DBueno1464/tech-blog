@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// */
 router.get('/', async (req, res) => {
     try {
         // Get all Posts and JOIN with user data
@@ -31,34 +32,24 @@ router.get('/', async (req, res) => {
     }
 });
 
+// */login
 router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    // if (req.session.logged_in) {
-    //     res.redirect('/profile');
-    //     return;
-    // }
-
     res.render('login');
 });
 
-router.get('/dashboard', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    // if (req.session.logged_in) {
-    //     res.redirect('/profile');
-    //     return;
-    // }
-
+// */dashboard
+router.get('/dashboard', withAuth, (req, res) => {
     res.render('dashboard');
 });
 
-router.get('/newPost', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    // if (req.session.logged_in) {
-    //     res.redirect('/profile');
-    //     return;
-    // }
-
+// */newPost
+router.get('/newPost', withAuth, (req, res) => {
     res.render('newPost');
+});
+
+// */commentPost
+router.get('/commentPost', withAuth, (req, res) => {
+    res.render('commentPost');
 });
 
 module.exports = router;
