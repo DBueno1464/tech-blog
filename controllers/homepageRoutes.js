@@ -43,8 +43,13 @@ router.get('/dashboard', withAuth, (req, res) => {
 });
 
 // */newPost
-router.get('/newPost', withAuth, (req, res) => {
-    res.render('newPost');
+router.get('/newPost', withAuth, async (req, res) => {
+    const name = await req.session.user_name;
+    try {
+    res.render('newPost', {name})
+    } catch(err) {
+        res.status(500).json(err);
+    }
 });
 
 // */commentPost

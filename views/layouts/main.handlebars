@@ -23,7 +23,7 @@
           <a class="col" href="/dashboard">Dashboard</a>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-          <button class="no-button col" id="logout">Logout</button>
+          <a class="col" id="logout">Logout</a>
           {{else}}
           <a class="col" href="/login">Login</a>
           {{/if}}
