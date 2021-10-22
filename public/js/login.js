@@ -20,7 +20,6 @@ const loginFormHandler = async (event) => {
             alert(response.statusText);
         }
     } 
-    console.log("hello");
 };
 
 const signupFormHandler = async (event) => {

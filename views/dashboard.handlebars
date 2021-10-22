@@ -1,5 +1,31 @@
+<div class="row text-white">
+    <div class="col-auto">
+        <h2>Welcome, {{name}}!</h2>
+    </div>
+</div>
+
+<div class="row mt-4 text-white">
+
+    {{#if posts.length}}
+    <div class="col-md-6 post-list">
+        <h3>Current Posts:</h3>
+
+        {{#each posts as |post|}}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+                <p>{{post.content}}</p>
+            </div>
+            <div class="col-md-4">
+                <button class=" btn btn-sm btn-danger" data-id="{{post.id}}" data-method="Delete">DELETE</button>
+            </div>
+            <div class="col-md-4">
+                <button class=" btn btn-sm btn-danger" data-id="{{post.id}}" data-method="Update">UPDATE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
 
 <a href="/newPost">New Post</a>
-
-
-<script src="/js/post.js"></script>
